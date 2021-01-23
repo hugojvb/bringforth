@@ -4,7 +4,7 @@ import DrawerLeft from "./DrawerLeft";
 
 import clsx from "clsx";
 
-import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles, createStyles, Theme } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles, createStyles, Theme, Tooltip } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
@@ -74,14 +74,16 @@ const Navbar: FC = () => {
 				})}
 			>
 				<Toolbar>
-					<IconButton
-						aria-label="Menu"
-						color="inherit"
-						onClick={handleDrawerOpen}
-						className={clsx(classes.menuButton, open && classes.hide)}
-					>
-						<MenuIcon />
-					</IconButton>
+					<Tooltip title="Show sidebar" arrow>
+						<IconButton
+							aria-label="Menu"
+							color="inherit"
+							onClick={handleDrawerOpen}
+							className={clsx(classes.menuButton, open && classes.hide)}
+						>
+							<MenuIcon />
+						</IconButton>
+					</Tooltip>
 					<Typography variant="h5" display="block" className={classes.title}>
 						Bring4th
 					</Typography>
@@ -94,12 +96,24 @@ const Navbar: FC = () => {
 						variant="scrollable"
 						scrollButtons="auto"
 					>
-						<Tab icon={<HomeIcon />} wrapped={true} className={classes.tabs} />
-						<Tab icon={<ForumIcon />} className={classes.tabs} />
-						<Tab icon={<WebIcon />} className={classes.tabs} />
-						<Tab icon={<LibraryBooksIcon />} className={classes.tabs} />
-						<Tab icon={<InfoIcon />} className={classes.tabs} />
-						<Tab icon={<LocalGroceryStoreIcon />} className={classes.tabs} />
+						<Tooltip title="Home" arrow>
+							<Tab icon={<HomeIcon />} wrapped={true} className={classes.tabs} />
+						</Tooltip>
+						<Tooltip title="Forums" arrow>
+							<Tab icon={<ForumIcon />} className={classes.tabs} />
+						</Tooltip>
+						<Tooltip title="Blogs" arrow>
+							<Tab icon={<WebIcon />} className={classes.tabs} />
+						</Tooltip>
+						<Tooltip title="Library" arrow>
+							<Tab icon={<LibraryBooksIcon />} className={classes.tabs} />
+						</Tooltip>
+						<Tooltip title="About Us" arrow>
+							<Tab icon={<InfoIcon />} className={classes.tabs} />
+						</Tooltip>
+						<Tooltip title="Store" arrow>
+							<Tab icon={<LocalGroceryStoreIcon />} className={classes.tabs} />
+						</Tooltip>
 					</Tabs>
 				</Toolbar>
 			</AppBar>

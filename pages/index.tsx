@@ -2,10 +2,6 @@ import { Fragment, FC } from "react";
 
 import { makeStyles, Theme, createStyles } from "@material-ui/core";
 
-import clsx from "clsx";
-
-const drawerWidth = 240;
-
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		content: {
@@ -15,14 +11,6 @@ const useStyles = makeStyles((theme: Theme) =>
 				easing: theme.transitions.easing.sharp,
 				duration: theme.transitions.duration.leavingScreen,
 			}),
-			marginLeft: -drawerWidth,
-		},
-		contentShift: {
-			transition: theme.transitions.create("margin", {
-				easing: theme.transitions.easing.easeOut,
-				duration: theme.transitions.duration.enteringScreen,
-			}),
-			marginLeft: 0,
 		},
 	})
 );
@@ -32,11 +20,7 @@ const Home: FC = () => {
 
 	return (
 		<Fragment>
-			<main
-				className={clsx(classes.content, {
-					[classes.contentShift]: open,
-				})}
-			>
+			<main className={classes.content}>
 				<h1>hello</h1>
 			</main>
 		</Fragment>
