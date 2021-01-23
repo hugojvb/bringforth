@@ -1,6 +1,6 @@
 import { Fragment, FC } from "react";
 
-import { makeStyles, Theme, createStyles } from "@material-ui/core";
+import { makeStyles, Theme, createStyles, Container, Paper, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -19,11 +19,13 @@ const Home: FC = () => {
 	const classes = useStyles();
 
 	return (
-		<Fragment>
-			<main className={classes.content}>
-				<h1>hello</h1>
-			</main>
-		</Fragment>
+		<Container>
+			<Paper elevation={3}>
+				<main className={classes.content}>
+					<Typography>Hello</Typography>
+				</main>
+			</Paper>
+		</Container>
 	);
 };
 

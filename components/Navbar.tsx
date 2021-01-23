@@ -1,8 +1,10 @@
-import { Fragment, useState, FC } from "react";
+import { useState, FC, Fragment } from "react";
 
 import DrawerLeft from "./DrawerLeft";
 
 import clsx from "clsx";
+
+import Image from "next/image";
 
 import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles, createStyles, Theme, Tooltip } from "@material-ui/core";
 
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			flexGrow: 1,
 		},
 		title: {
-			marginLeft: "2vw",
+			marginLeft: "5px",
 		},
 		appBar: {
 			transition: theme.transitions.create(["margin", "width"], {
@@ -84,7 +86,8 @@ const Navbar: FC = () => {
 							<MenuIcon />
 						</IconButton>
 					</Tooltip>
-					<Typography variant="h5" display="block" className={classes.title}>
+					<Image src="/logo.png" height="50" width="50" />
+					<Typography variant="h5" className={classes.title}>
 						Bring4th
 					</Typography>
 					<Tabs

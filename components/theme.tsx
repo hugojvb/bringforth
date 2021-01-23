@@ -17,6 +17,9 @@ const theme = createMuiTheme({
 			default: "#fff",
 		},
 	},
+	typography: {
+		fontFamily: "Merriweather, Segoe UI, sans-serif, Arial",
+	},
 });
 
 export default theme;
