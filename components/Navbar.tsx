@@ -1,6 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, FC } from "react";
 
-import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles } from "@material-ui/core";
+import DrawerLeft from "./DrawerLeft";
+
+import clsx from "clsx";
+
+import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles, createStyles, Theme } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
@@ -10,23 +14,52 @@ import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import WebIcon from "@material-ui/icons/Web";
 import ForumIcon from "@material-ui/icons/Forum";
 
-const useStyles = makeStyles({
-	menu: {
-		marginLeft: "auto",
-	},
-	tabs: {
-		minWidth: "4vw",
-		flexGrow: 1,
-	},
-	title: {
-		marginLeft: "2vw",
-	},
-});
+const drawerWidth = 240;
 
-export default function Navbar() {
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		menu: {
+			marginLeft: "auto",
+		},
+		tabs: {
+			minWidth: "4vw",
+			flexGrow: 1,
+		},
+		title: {
+			marginLeft: "2vw",
+		},
+		appBar: {
+			transition: theme.transitions.create(["margin", "width"], {
+				easing: theme.transitions.easing.sharp,
+				duration: theme.transitions.duration.leavingScreen,
+			}),
+		},
+		appBarShift: {
+			width: `calc(100% - ${drawerWidth}px)`,
+			marginLeft: drawerWidth,
+			transition: theme.transitions.create(["margin", "width"], {
+				easing: theme.transitions.easing.easeOut,
+				duration: theme.transitions.duration.enteringScreen,
+			}),
+		},
+		menuButton: {
+			marginRight: theme.spacing(2),
+		},
+		hide: {
+			display: "none",
+		},
+	})
+);
+
+const Navbar: FC = () => {
 	const classes = useStyles();
 
+	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState(0);
+
+	const handleDrawerOpen = () => {
+		setOpen(true);
+	};
 
 	const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
 		setValue(newValue);
@@ -34,9 +67,19 @@ export default function Navbar() {
 
 	return (
 		<Fragment>
-			<AppBar position="sticky">
+			<AppBar
+				position="sticky"
+				className={clsx(classes.appBar, {
+					[classes.appBarShift]: open,
+				})}
+			>
 				<Toolbar>
-					<IconButton aria-label="Menu" color="inherit">
+					<IconButton
+						aria-label="Menu"
+						color="inherit"
+						onClick={handleDrawerOpen}
+						className={clsx(classes.menuButton, open && classes.hide)}
+					>
 						<MenuIcon />
 					</IconButton>
 					<Typography variant="h5" display="block" className={classes.title}>
@@ -60,6 +103,9 @@ export default function Navbar() {
 					</Tabs>
 				</Toolbar>
 			</AppBar>
+			<DrawerLeft open={open} setOpen={setOpen} />
 		</Fragment>
 	);
-}
+};
+
+export default Navbar;

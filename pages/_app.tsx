@@ -5,7 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import theme from "../components/theme";
-import Navbar from "../components/Navbar.tsx";
+import Navbar from "../components/Navbar";
 
 export default function MyApp(props: any) {
 	const { Component, pageProps } = props;
