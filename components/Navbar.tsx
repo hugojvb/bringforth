@@ -90,15 +90,7 @@ const Navbar: FC = () => {
 					<Typography variant="h5" className={classes.title}>
 						Bring4th
 					</Typography>
-					<Tabs
-						value={value}
-						className={classes.menu}
-						onChange={handleChange}
-						indicatorColor="secondary"
-						textColor="inherit"
-						variant="scrollable"
-						scrollButtons="auto"
-					>
+					<Tabs value={value} className={classes.menu} onChange={handleChange} indicatorColor="secondary" textColor="inherit">
 						<Tooltip title="Home" arrow>
 							<Tab label="Home" icon={<HomeIcon />} wrapped={true} className={classes.tabs} />
 						</Tooltip>

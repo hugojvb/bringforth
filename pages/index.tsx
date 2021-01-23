@@ -19,12 +19,10 @@ const Home: FC = () => {
 	const classes = useStyles();
 
 	return (
-		<Container>
-			<Paper elevation={3}>
-				<main className={classes.content}>
-					<Typography>Hello</Typography>
-				</main>
-			</Paper>
+		<Container maxWidth="lg">
+			<main className={classes.content}>
+				<Typography>Hello</Typography>
+			</main>
 		</Container>
 	);
 };

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { CssBaseline } from "@material-ui/core";
 
 import theme from "../components/theme";
 import Navbar from "../components/Navbar";
@@ -22,7 +22,7 @@ export default function MyApp(props: any) {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>My page</title>
+				<title>Bring4th</title>
 				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
 			</Head>
 			<ThemeProvider theme={theme}>
