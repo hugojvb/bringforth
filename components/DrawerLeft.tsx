@@ -15,6 +15,7 @@ import SettingsVoiceIcon from "@material-ui/icons/SettingsVoice";
 import CreateIcon from "@material-ui/icons/Create";
 import PublicIcon from "@material-ui/icons/Public";
 import LinkIcon from "@material-ui/icons/Link";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const drawerWidth = 240;
 
@@ -85,6 +86,15 @@ const DrawerLeft: FC<Props> = ({ open, setOpen }) => {
 					<IconButton onClick={handleDrawerClose}>{theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}</IconButton>
 				</div>
 				<List>
+					<ListItem button key="Login" className={classes.login}>
+						<ListItemIcon>
+							<LockOpenIcon />
+						</ListItemIcon>
+						<ListItemText primary="Login" />
+					</ListItem>
+					<br />
+					<Divider />
+
 					<ListItem button key="Seeker Connector">
 						<ListItemIcon>
 							<GroupIcon />

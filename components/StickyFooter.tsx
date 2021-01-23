@@ -1,6 +1,7 @@
 import React from "react";
 
-import { CssBaseline, Typography, Container, Link, Grid, Divider, List, ListItem, Select, Box } from "@material-ui/core";
+import { CssBaseline, Typography, Container, Link, Grid, Divider, List, ListItem, Select } from "@material-ui/core";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 import Image from "next/image";
@@ -21,7 +22,9 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: "5vh",
 		textAlign: "center",
 	},
-	grid: {},
+	brandName: {
+		marginLeft: "15px",
+	},
 }));
 
 export default function StickyFooter() {
@@ -34,42 +37,51 @@ export default function StickyFooter() {
 				<Divider variant="fullWidth" />
 				<br />
 				<footer>
-					<Grid container direction="row" justify="center" alignItems="center" spacing={3} className={classes.grid}>
-						<Grid container item xs={12} sm={3} spacing={3}>
-							<Box>
-								<Image src="/footer.jpg" height="70" width="70" />{" "}
-							</Box>
-
-							<Typography variant="h6">Bring4th</Typography>
+					<Grid container direction="row" justify="center" spacing={3}>
+						<Grid container item xs={12} sm={3} spacing={3} alignItems="center">
+							<Image src="/footer.jpg" height="70" width="70" />{" "}
+							<Typography variant="h6" className={classes.brandName}>
+								Bring4th
+							</Typography>
 						</Grid>
 						<Grid container item xs={6} sm={3} spacing={3}>
 							<List>
-								<Typography variant="subtitle1">Company</Typography>
-								<ListItem button key="Seeker Connector">
+								<Typography variant="subtitle1">Community</Typography>
+								<ListItem button key="Facebook">
 									<Typography variant="body2">
-										<Link color="inherit" href="/contact">
-											Contact Us
+										<Link color="inherit" href="https://www.facebook.com/llresearch/" target="_blank" rel="noopener noreferrer">
+											Facebook
 										</Link>
 									</Typography>
 								</ListItem>
-								<ListItem button key="Seeker Connector">
+								<ListItem button key="Twitter">
 									<Typography variant="body2">
-										<Link color="inherit" href="/contact">
-											Contact Us
+										<Link color="inherit" href="https://twitter.com/ll_research" target="_blank" rel="noopener noreferrer">
+											Twitter
 										</Link>
 									</Typography>
 								</ListItem>
-								<ListItem button key="Seeker Connector">
+								<ListItem button key="Youtube">
 									<Typography variant="body2">
-										<Link color="inherit" href="/contact">
-											Contact Us
+										<Link
+											color="inherit"
+											href="https://www.youtube.com/user/LLResearch101"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Youtube
 										</Link>
 									</Typography>
 								</ListItem>
-								<ListItem button key="Seeker Connector">
+								<ListItem button key="Instagram">
 									<Typography variant="body2">
-										<Link color="inherit" href="/contact">
-											Contact Us
+										<Link
+											color="inherit"
+											href="https://www.instagram.com/the_law_of_one/"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Instagram
 										</Link>
 									</Typography>
 								</ListItem>
@@ -77,38 +89,31 @@ export default function StickyFooter() {
 						</Grid>
 						<Grid container item xs={6} sm={3} spacing={3}>
 							<List>
-								<Typography variant="subtitle1">Company</Typography>
-								<ListItem button key="Seeker Connector">
+								<Typography variant="subtitle1">Contact</Typography>
+								<ListItem button key="Contact">
 									<Typography variant="body2">
 										<Link color="inherit" href="/contact">
 											Contact Us
 										</Link>
 									</Typography>
 								</ListItem>
-								<ListItem button key="Seeker Connector">
-									<Typography variant="body2">
-										<Link color="inherit" href="/contact">
-											Contact Us
-										</Link>
-									</Typography>
-								</ListItem>
-								<ListItem button key="Seeker Connector">
-									<Typography variant="body2">
-										<Link color="inherit" href="/contact">
-											Contact Us
-										</Link>
-									</Typography>
-								</ListItem>
-								<ListItem button key="Seeker Connector">
+								<ListItem button key="Privacy Policy">
 									<Typography variant="body2">
 										<Link color="inherit" href="/privacy">
 											Privacy Policy
 										</Link>
 									</Typography>
 								</ListItem>
+								<ListItem button key="Login">
+									<Typography variant="body2">
+										<Link color="inherit" href="/login">
+											Login
+										</Link>
+									</Typography>
+								</ListItem>
 							</List>
 						</Grid>
-						<Grid container xs={6} sm={3} spacing={3}>
+						<Grid container item xs={6} sm={3} spacing={3}>
 							<List>
 								<Typography variant="subtitle1">Language</Typography>
 								<Select
@@ -123,8 +128,8 @@ export default function StickyFooter() {
 						<Typography variant="body2" color="textSecondary" className={classes.text}>
 							{"Copyright © "}
 							{new Date().getFullYear()}{" "}
-							<Link color="inherit" href="https://www.llresearch.org/">
-								L/L Research All. Rights Reserved
+							<Link color="inherit" href="https://www.llresearch.org/" target="_blank" rel="noopener noreferrer">
+								L/L Research. All Rights Reserved
 								{"."}
 							</Link>
 						</Typography>
