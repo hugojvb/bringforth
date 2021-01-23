@@ -6,6 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import theme from "../components/theme";
 import Navbar from "../components/Navbar";
+import StickyFooter from "../components/StickyFooter";
 
 export default function MyApp(props: any) {
 	const { Component, pageProps } = props;
@@ -29,6 +30,7 @@ export default function MyApp(props: any) {
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
 				<Component {...pageProps} />
+				<StickyFooter />
 			</ThemeProvider>
 		</React.Fragment>
 	);
