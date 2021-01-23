@@ -1,13 +1,20 @@
 import { Fragment, FC } from "react";
 
-import { Drawer, IconButton, List, ListItem, ListItemText, ListItemIcon, Divider } from "@material-ui/core";
+import { Drawer, IconButton, List, ListItem, ListItemText, ListItemIcon, Divider, Typography } from "@material-ui/core";
 
 import { makeStyles, useTheme, Theme, createStyles } from "@material-ui/core/styles";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+
+import GroupIcon from "@material-ui/icons/Group";
 import MailIcon from "@material-ui/icons/Mail";
+import EventIcon from "@material-ui/icons/Event";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import SettingsVoiceIcon from "@material-ui/icons/SettingsVoice";
+import CreateIcon from "@material-ui/icons/Create";
+import PublicIcon from "@material-ui/icons/Public";
+import LinkIcon from "@material-ui/icons/Link";
 
 const drawerWidth = 240;
 
@@ -77,23 +84,55 @@ const DrawerLeft: FC<Props> = ({ open, setOpen }) => {
 				<div className={classes.drawerHeader}>
 					<IconButton onClick={handleDrawerClose}>{theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}</IconButton>
 				</div>
-				<Divider />
 				<List>
-					{["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-						<ListItem button key={text}>
-							<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItem>
-					))}
-				</List>
-				<Divider />
-				<List>
-					{["All mail", "Trash", "Spam"].map((text, index) => (
-						<ListItem button key={text}>
-							<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItem>
-					))}
+					<ListItem button key="Seeker Connector">
+						<ListItemIcon>
+							<GroupIcon />
+						</ListItemIcon>
+						<ListItemText primary="Seeker Connector" />
+					</ListItem>
+					<ListItem button key="Subscriptions">
+						<ListItemIcon>
+							<MailIcon />
+						</ListItemIcon>
+						<ListItemText primary="Subscriptions" />
+					</ListItem>
+					<ListItem button key="Events">
+						<ListItemIcon>
+							<EventIcon />
+						</ListItemIcon>
+						<ListItemText primary="Events" />
+					</ListItem>
+					<ListItem button key="Volutunteer/Donate">
+						<ListItemIcon>
+							<FavoriteIcon />
+						</ListItemIcon>
+						<ListItemText primary="Volutunteer/Donate" />
+					</ListItem>
+					<ListItem button key="Podcast">
+						<ListItemIcon>
+							<SettingsVoiceIcon />
+						</ListItemIcon>
+						<ListItemText primary="Podcast" />
+					</ListItem>
+					<ListItem button key="Carla's Niche">
+						<ListItemIcon>
+							<CreateIcon />
+						</ListItemIcon>
+						<ListItemText primary="Carla's Niche" />
+					</ListItem>
+					<ListItem button key="Gaia Meditation">
+						<ListItemIcon>
+							<PublicIcon />
+						</ListItemIcon>
+						<ListItemText primary="Gaia Meditation" />
+					</ListItem>
+					<ListItem button key="Linkshare">
+						<ListItemIcon>
+							<LinkIcon />
+						</ListItemIcon>
+						<ListItemText primary="Linkshare" />
+					</ListItem>
 				</List>
 			</Drawer>
 		</Fragment>

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			marginLeft: "auto",
 		},
 		tabs: {
-			minWidth: "4vw",
+			minWidth: "6vw",
 			flexGrow: 1,
 		},
 		title: {
@@ -97,22 +97,22 @@ const Navbar: FC = () => {
 						scrollButtons="auto"
 					>
 						<Tooltip title="Home" arrow>
-							<Tab icon={<HomeIcon />} wrapped={true} className={classes.tabs} />
+							<Tab label="Home" icon={<HomeIcon />} wrapped={true} className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Forums" arrow>
-							<Tab icon={<ForumIcon />} className={classes.tabs} />
+							<Tab label="Forums" icon={<ForumIcon />} className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Blogs" arrow>
-							<Tab icon={<WebIcon />} className={classes.tabs} />
+							<Tab label="Blogs" icon={<WebIcon />} className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Library" arrow>
-							<Tab icon={<LibraryBooksIcon />} className={classes.tabs} />
+							<Tab label="Library" icon={<LibraryBooksIcon />} className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="About Us" arrow>
-							<Tab icon={<InfoIcon />} className={classes.tabs} />
+							<Tab label="About Us" icon={<InfoIcon />} className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Store" arrow>
-							<Tab icon={<LocalGroceryStoreIcon />} className={classes.tabs} />
+							<Tab label="Store" icon={<LocalGroceryStoreIcon />} className={classes.tabs} />
 						</Tooltip>
 					</Tabs>
 				</Toolbar>
