@@ -36,7 +36,7 @@ const Home: FC = () => {
 
 	return (
 		<div className={classes.fullWidth}>
-			<Container maxWidth="lg" className={classes.container}>
+			<Container fixed className={classes.container}>
 				<br />
 
 				<Grow in={mounted}>
