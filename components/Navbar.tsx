@@ -9,12 +9,7 @@ import Image from "next/image";
 import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles, createStyles, Theme, Tooltip } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
-import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
-import HomeIcon from "@material-ui/icons/Home";
-import InfoIcon from "@material-ui/icons/Info";
-import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
-import WebIcon from "@material-ui/icons/Web";
-import ForumIcon from "@material-ui/icons/Forum";
+import MoreIcon from "@material-ui/icons/MoreVert";
 
 const drawerWidth = 240;
 
@@ -92,22 +87,22 @@ const Navbar: FC = () => {
 					</Typography>
 					<Tabs value={value} className={classes.menu} onChange={handleChange} indicatorColor="secondary" textColor="inherit">
 						<Tooltip title="Home" arrow>
-							<Tab icon={<HomeIcon />} wrapped={true} className={classes.tabs} />
+							<Tab label="Home" wrapped={true} className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Forums" arrow>
-							<Tab icon={<ForumIcon />} className={classes.tabs} />
+							<Tab label="Labels" className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Blogs" arrow>
-							<Tab icon={<WebIcon />} className={classes.tabs} />
+							<Tab label="Blogs" className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Library" arrow>
-							<Tab icon={<LibraryBooksIcon />} className={classes.tabs} />
+							<Tab label="Library" className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="About Us" arrow>
-							<Tab icon={<InfoIcon />} className={classes.tabs} />
+							<Tab label="About Us" className={classes.tabs} />
 						</Tooltip>
 						<Tooltip title="Store" arrow>
-							<Tab icon={<LocalGroceryStoreIcon />} className={classes.tabs} />
+							<Tab label="Store" className={classes.tabs} />
 						</Tooltip>
 					</Tabs>
 				</Toolbar>
