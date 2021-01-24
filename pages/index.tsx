@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			textAlign: "center",
 			color: "#fff",
 		},
-		text: { textAlign: "left", color: "#fff", marginTop: "10vw", lineHeight: "2", fontSize: "3rem" },
+		text: { textAlign: "left", color: "#fff", marginTop: "25vh", lineHeight: "8vw", fontSize: "3.5vw" },
 		container: { minHeight: "94vh" },
 		fullWidth: { backgroundImage: `url("/sunset.png")` },
 		button: {},
@@ -36,7 +36,7 @@ const Home: FC = () => {
 
 	return (
 		<div className={classes.fullWidth}>
-			<Container maxWidth="md" className={classes.container}>
+			<Container maxWidth="lg" className={classes.container}>
 				<br />
 
 				<Grow in={mounted}>
