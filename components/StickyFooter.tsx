@@ -113,7 +113,7 @@ export default function StickyFooter() {
 								</ListItem>
 							</List>
 						</Grid>
-						<Grid container item xs={6} sm={3} spacing={3}>
+						<Grid container item xs={11} sm={3} spacing={3}>
 							<List>
 								<Typography variant="subtitle1">Language</Typography>
 								<Select

@@ -1,47 +1,53 @@
-import { useEffect, FC } from "react";
+import { useEffect, useState, FC } from "react";
 
-import { makeStyles, Theme, createStyles, Container, Typography } from "@material-ui/core";
+import { makeStyles, Theme, createStyles, Container, Typography, Paper, Button, Box, Grow, Fade } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
-		content: {
-			flexGrow: 1,
-			padding: theme.spacing(3),
-			transition: theme.transitions.create("margin", {
-				easing: theme.transitions.easing.sharp,
-				duration: theme.transitions.duration.leavingScreen,
-			}),
-		},
+		// content: {
+		// 	flexGrow: 1,
+		// 	padding: theme.spacing(8),
+		// 	transition: theme.transitions.create("margin", {
+		// 		easing: theme.transitions.easing.sharp,
+		// 		duration: theme.transitions.duration.leavingScreen,
+		// 	}),
+		// 	background: `linear-gradient(170deg, rgba(250, 250, 220, 0.1), rgba(250, 250, 200, 0.6) )`,
+		// 	marginTop: "10vh",
+		// },
 		title: {
 			textAlign: "center",
-			color: "#FFF",
-			marginTop: "15vh",
+			color: "#fff",
 		},
-		text: { textAlign: "center", color: "#FFF", marginTop: "5vh", lineHeight: "3" },
+		text: { textAlign: "left", color: "#fff", marginTop: "3em", lineHeight: "2", fontSize: "3rem" },
 		container: { minHeight: "94vh" },
 		fullWidth: { backgroundImage: `url("/sunset.png")` },
+		button: {},
 	})
 );
 
 const Home: FC = () => {
 	const classes = useStyles();
 
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	});
+
 	return (
 		<div className={classes.fullWidth}>
 			<Container maxWidth="lg" className={classes.container}>
-				<main className={classes.content}>
-					<Typography variant="h4" className={classes.title}>
-						Welcome to Bring4th
-					</Typography>
-					<Typography variant="body1" className={classes.text}>
-						Bring4th, a double entendre suggesting bring forth your love and bring 4th density, is our newest companion site to accompany
-						the L/L Research web site, www.llresearch.org. With Bring4th’s launch, LLResearch.org has become an archive web site, a
-						virtual library that houses on its shelves the fruit of our life's work to share information regarding the Law of One. It is
-						our intention that these intensive efforts to share information are helpful to the spiritual evolution of all. We will
-						continue to update LLResearch.org with our bi-weekly public Saturday meditations, personal channelings, speeches, interviews,
-						workshops, and other items of interest.
-					</Typography>
-				</main>
+				<br />
+
+				<Grow in={mounted}>
+					<Typography className={classes.text}>Bring4th is the newest companion to the L/L Research archive.</Typography>
+				</Grow>
+				<br />
+				<Box className={classes.button}>
+					<Button variant="outlined" color="secondary" size="large">
+						See More
+					</Button>
+				</Box>
 			</Container>
 		</div>
 	);
