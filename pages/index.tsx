@@ -1,6 +1,6 @@
 import { useEffect, FC } from "react";
 
-import { makeStyles, Theme, createStyles, Container, Typography, Divider } from "@material-ui/core";
+import { makeStyles, Theme, createStyles, Container, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		title: {
 			textAlign: "center",
 			color: "#FFF",
-			marginTop: "30vh",
+			marginTop: "15vh",
 		},
 		text: { textAlign: "center", color: "#FFF", marginTop: "5vh", lineHeight: "3" },
-		container: { minHeight: "100vh" },
+		container: { minHeight: "94vh" },
 		fullWidth: { backgroundImage: `url("/sunset.png")` },
 	})
 );

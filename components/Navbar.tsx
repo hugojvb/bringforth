@@ -6,11 +6,24 @@ import clsx from "clsx";
 
 import Image from "next/image";
 
-import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles, createStyles, Theme, Tooltip } from "@material-ui/core";
+import {
+	AppBar,
+	Toolbar,
+	IconButton,
+	Typography,
+	Tabs,
+	Tab,
+	makeStyles,
+	createStyles,
+	Theme,
+	Tooltip,
+	Menu,
+	MenuItem,
+	Slide,
+} from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { SettingsRemoteOutlined } from "@material-ui/icons";
 
 const drawerWidth = 240;
 
@@ -56,6 +69,15 @@ const Navbar: FC = () => {
 	const [value, setValue] = useState(0);
 	const [mounted, setMounted] = useState(false);
 	const [width, setWidth] = useState<Number>(0);
+	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -119,8 +141,29 @@ const Navbar: FC = () => {
 					) : (
 						<Tabs className={classes.menu} indicatorColor="secondary" textColor="inherit">
 							<Tooltip title="More" arrow>
-								<Tab icon={<MoreIcon />} className={classes.tabs} />
+								<Tab
+									icon={<MoreIcon />}
+									className={classes.tabs}
+									aria-controls="simple-menu"
+									aria-haspopup="true"
+									onClick={handleClick}
+								/>
 							</Tooltip>
+							<Menu
+								id="simple-menu"
+								anchorEl={anchorEl}
+								keepMounted
+								open={Boolean(anchorEl)}
+								onClose={handleClose}
+								TransitionComponent={Slide}
+							>
+								<MenuItem onClick={handleClose}>Home</MenuItem>
+								<MenuItem onClick={handleClose}>Forums</MenuItem>
+								<MenuItem onClick={handleClose}>Blogs</MenuItem>
+								<MenuItem onClick={handleClose}>Library</MenuItem>
+								<MenuItem onClick={handleClose}>About Us</MenuItem>
+								<MenuItem onClick={handleClose}>Store</MenuItem>
+							</Menu>
 						</Tabs>
 					)}
 				</Toolbar>
