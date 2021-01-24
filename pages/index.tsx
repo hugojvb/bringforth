@@ -1,6 +1,6 @@
 import { useEffect, FC } from "react";
 
-import { makeStyles, Theme, createStyles, Container, Typography } from "@material-ui/core";
+import { makeStyles, Theme, createStyles, Container, Typography, Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -12,11 +12,12 @@ const useStyles = makeStyles((theme: Theme) =>
 				duration: theme.transitions.duration.leavingScreen,
 			}),
 		},
-		text: {
+		title: {
 			textAlign: "center",
 			color: "#FFF",
-			marginTop: "20vh",
+			marginTop: "30vh",
 		},
+		text: { textAlign: "center", color: "#FFF", marginTop: "5vh", lineHeight: "3" },
 		container: { minHeight: "100vh" },
 		fullWidth: { backgroundImage: `url("/sunset.png")` },
 	})
@@ -29,7 +30,7 @@ const Home: FC = () => {
 		<div className={classes.fullWidth}>
 			<Container maxWidth="lg" className={classes.container}>
 				<main className={classes.content}>
-					<Typography variant="h4" className={classes.text}>
+					<Typography variant="h4" className={classes.title}>
 						Welcome to Bring4th
 					</Typography>
 					<Typography variant="body1" className={classes.text}>

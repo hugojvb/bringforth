@@ -1,4 +1,4 @@
-import { useState, FC, Fragment } from "react";
+import { useState, FC, Fragment, useEffect } from "react";
 
 import DrawerLeft from "./DrawerLeft";
 
@@ -10,6 +10,7 @@ import { AppBar, Toolbar, IconButton, Typography, Tabs, Tab, makeStyles, createS
 
 import MenuIcon from "@material-ui/icons/Menu";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { SettingsRemoteOutlined } from "@material-ui/icons";
 
 const drawerWidth = 240;
 
@@ -53,6 +54,8 @@ const Navbar: FC = () => {
 
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState(0);
+	const [mounted, setMounted] = useState(false);
+	const [width, setWidth] = useState<Number>(0);
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -61,6 +64,13 @@ const Navbar: FC = () => {
 	const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
 		setValue(newValue);
 	};
+
+	useEffect(() => {
+		setMounted(true);
+
+		setWidth(window.innerWidth);
+		window.addEventListener("resize", () => setWidth(window.innerWidth));
+	});
 
 	return (
 		<Fragment>
@@ -85,26 +95,34 @@ const Navbar: FC = () => {
 					<Typography variant="h5" className={classes.title}>
 						Bring4th
 					</Typography>
-					<Tabs value={value} className={classes.menu} onChange={handleChange} indicatorColor="secondary" textColor="inherit">
-						<Tooltip title="Home" arrow>
-							<Tab label="Home" wrapped={true} className={classes.tabs} />
-						</Tooltip>
-						<Tooltip title="Forums" arrow>
-							<Tab label="Labels" className={classes.tabs} />
-						</Tooltip>
-						<Tooltip title="Blogs" arrow>
-							<Tab label="Blogs" className={classes.tabs} />
-						</Tooltip>
-						<Tooltip title="Library" arrow>
-							<Tab label="Library" className={classes.tabs} />
-						</Tooltip>
-						<Tooltip title="About Us" arrow>
-							<Tab label="About Us" className={classes.tabs} />
-						</Tooltip>
-						<Tooltip title="Store" arrow>
-							<Tab label="Store" className={classes.tabs} />
-						</Tooltip>
-					</Tabs>
+					{width > 900 ? (
+						<Tabs value={value} className={classes.menu} onChange={handleChange} indicatorColor="secondary" textColor="inherit">
+							<Tooltip title="Home" arrow>
+								<Tab label="Home" wrapped={true} className={classes.tabs} />
+							</Tooltip>
+							<Tooltip title="Forums" arrow>
+								<Tab label="Forums" className={classes.tabs} />
+							</Tooltip>
+							<Tooltip title="Blogs" arrow>
+								<Tab label="Blogs" className={classes.tabs} />
+							</Tooltip>
+							<Tooltip title="Library" arrow>
+								<Tab label="Library" className={classes.tabs} />
+							</Tooltip>
+							<Tooltip title="About Us" arrow>
+								<Tab label="About Us" className={classes.tabs} />
+							</Tooltip>
+							<Tooltip title="Store" arrow>
+								<Tab label="Store" className={classes.tabs} />
+							</Tooltip>
+						</Tabs>
+					) : (
+						<Tabs className={classes.menu} indicatorColor="secondary" textColor="inherit">
+							<Tooltip title="More" arrow>
+								<Tab icon={<MoreIcon />} className={classes.tabs} />
+							</Tooltip>
+						</Tabs>
+					)}
 				</Toolbar>
 			</AppBar>
 			<DrawerLeft open={open} setOpen={setOpen} />
